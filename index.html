@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Reveal.js</title>
+		<title>Event Sourcing</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -61,10 +61,10 @@
 			<div class="slides">
 
                 <section>
-                    <h1>Event Sourcing </h1>
-
-                    <footer style="padding-top:300px;">
-                        Bob van den Berge
+                    <h2>Event Sourcing </h2>
+                    <p><img src="img/webscale.png"/></p>
+                    <footer style="padding-top:30px;">
+                        <small>Bob van den Berge</small>
                     </footer>
                 </section>
 
@@ -79,7 +79,7 @@
                     </section>
 
                     <section>
-                        <img src="img/Shopping%20Cart%20old.png" />
+                        <p><img src="img/State%201.svg" /></p>
                         <aside class="notes">
                            <ul>
                                <li>PO die rapportering wil </li>
@@ -90,7 +90,11 @@
                     </section>
 
                     <section>
-                        <img src="img/Shopping%20Cart%20ES.png" />
+                        <img src="img/State%202.svg" />
+                    </section>
+
+                    <section>
+                        <img src="img/State%203.svg" />
                     </section>
 
                     <section>
@@ -241,7 +245,7 @@
 				controls: true,
 				progress: true,
 				history: true,
-				center: false,
+				center: true,
                 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
 

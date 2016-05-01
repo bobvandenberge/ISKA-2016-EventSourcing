@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Reveal.js</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/infosupport.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/vs.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+        <script>
+            function switchTemplate(css)
+            {
+                document.getElementById('theme').setAttribute('href','css/theme/' + css);
+            }
+        </script>
+
+
+        <!--Add support for earlier versions of Internet Explorer -->
+	    <!--[if lt IE 9]>
+	    <script src="lib/js/html5shiv.js"></script>
+	    <![endif]-->
+
+        <style>
+          .reveal .slides > section p {
+                text-align: center;
+            }
+        </style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+        <link rel="stylesheet" href="plugin/d3js/tessellation.css">
+	</head>
+
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+                <section>
+                    <h1>Event Sourcing </h1>
+
+                    <footer style="padding-top:300px;">
+                        Bob van den Berge
+                    </footer>
+                </section>
+
+                <section>
+                    <h2>Doel</h2>
+                    <p>Concept 'Event Sourcing' bekend / begrepen</p>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>Wat is Event Sourcing?</h1>
+                    </section>
+
+                    <section>
+                        <img src="img/Shopping%20Cart%20old.png" />
+                        <aside class="notes">
+                           <ul>
+                               <li>PO die rapportering wil </li>
+                               <li>deze data mist want is verwijderd</li>
+                               <li>kan gebouwd worden maar is pas vanaf vandaag</li>
+                           </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <img src="img/Shopping%20Cart%20ES.png" />
+                    </section>
+
+                    <section>
+                        <img src="img/ArchitectuurWithoutReadmodels.png" />
+                        <aside class="notes">
+                            - SQL Server log for db
+                            - Immutable
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Wat is het niet?</h2>
+                        <ul>
+                            <li>Holy grail</li>
+                            <li>Top level architecture</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <h1>Voordelen</h1>
+                    <ul>
+                        <li>Immutable lijst van events</li>
+                        <li>Debugability</li>
+                        <li>Performance (read models/append only writes)</li>
+                        <li>Geen object -> relational db mappings</li>
+                        <li>Scalable (read models)</li>
+                        <li>Selective synchronisation</li>
+                        <li>Occassional synchronisation</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Nadelen</h1>
+                    <ul>
+                        <li>Complex</li>
+                        <li>Event log kan snel gigantisch worden</li>
+                        <li>Move moving parts</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>Problems / solution</h1>
+                    </section>
+
+                    <section>
+                        <h2>Is a username unique?</h2>
+                        <p>Replay all events in memory/then query? NO</p>
+                        <ul>
+                            <li>Snapshots</li>
+                            <li>Read models
+                            <ul>
+                                <li>Eventual consistency</li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <img src="img/Architectuur.png" />
+                    </section>
+
+                    <section>
+                        <h2>Versioning</h2>
+                        <p>Events no longer relevant, fields changed, names changed</p>
+                        <ul>
+                            <li>Event up converters
+                                <ul>
+                                    <li>Runtime</li>
+                                    <li>Write in EventStore</li>
+                                </ul>
+                            </li>
+                            <li>Snapshots</li>
+                        </ul>
+                        <p>IMG HERE</p>
+                    </section>
+
+                    <section>
+                        <h2>Concurrency</h2>
+                        <ul>
+                            <li>Optimistic locking</li>
+                            <li>Pessimistic locking</li>
+                            <li>Event merging</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <p>IMG ABOUT EVENT MERGING HERE</p>
+                    </section>
+
+                    <section>
+                        <h2>New service connected?</h2>
+                        <p>Wat als een service crashed?</p>
+                        <ul>
+                            <li>Replaying van events
+                                <ul>
+                                    <li>ATOM feeds</li>
+                                    <li>Niet via bus!</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Single source of failure</h2>
+                        <p>Correct, gewoon dubbel uitvoeren</p>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Wanneer EventSourcing?</h2>
+                    <ul>
+                        <li>Rich object-oriented domain models</li>
+                        <li>Non-CRUD behaviour</li>
+                        <li>Good debugging capabilities is critical</li>
+                        <li>Need version control of data</li>
+                        <li>Need it for monitoring</li>
+                        <li>Domain is inherently event driven</li>
+                        <li>You are using CQRS</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Producten</h2>
+                    <ul>
+                        <li>NEventStore (by Greg Young)</li>
+                        <li>Akka</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>?</h1>
+                </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+        <script src="plugin/d3js/d3.v3.min.js"></script>
+        <script src="plugin/d3js/tessellation.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.min.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+            Reveal.addEventListener( 'ready', function( event ) {
+                tesselationInit();
+            } );
+		</script>
+	</body>
+</html>

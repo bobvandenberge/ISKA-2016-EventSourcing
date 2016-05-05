@@ -46,6 +46,15 @@
           .reveal .slides > section p {
                 text-align: center;
             }
+
+          .reveal .slides > section .left {
+              float:left;
+              width:50%;
+          }
+          .reveal .slides > section .right {
+              float:right;
+              width:50%;
+          }
         </style>
 
 		<!--[if lt IE 9]>
@@ -62,15 +71,15 @@
 
                 <section>
                     <h2>Event Sourcing </h2>
-                    <p><img src="img/webscale.png"/></p>
-                    <footer style="padding-top:30px;">
+                    <p><img src="img/webscale.png" style="height:450px;"/></p>
+                    <footer style="padding-top:25px;">
                         <small>Bob van den Berge</small>
                     </footer>
                 </section>
 
                 <section>
                     <h2>Doel</h2>
-                    <p>Concept 'Event Sourcing' bekend / begrepen</p>
+                    <p>Concept 'Event Sourcing' bekend</p>
                 </section>
 
                 <section>
@@ -95,6 +104,35 @@
 
                     <section>
                         <img src="img/State%203.svg" />
+                    </section>
+
+
+                    <section>
+                        <div class="left" style="width:40%;">
+                            <img src="img/State%203.svg" style="padding:70px 0;"/>
+                        </div>
+                        <div class="left" style="width:5%;">
+                            <img src="img/jsonBoxConnector.png" style="height:260px;padding:4px 0 0 0;"/>
+                        </div>
+                        <div class="right" style="width:55%;">
+                            <pre>
+
+    {
+        'id': 3,
+        'type': 'ArtikelToegevoegd',
+        'datum': '<script type="text/javascript">document.write(Date.now());</script>',
+        'data':
+            {
+                'artikel': 'Toetsenbord'
+            }
+    }
+                            </pre>
+                        </div>
+                    </section>
+
+
+                    <section>
+                        hi
                     </section>
 
                     <section>

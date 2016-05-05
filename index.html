@@ -185,9 +185,9 @@
                     <section data-transition="none">
                         <img src="img/replay/Step%2010.svg" style="width:100%;" />
                     </section>
-                    
+
                     <section>
-                        <img src="img/ArchitectuurWithoutReadmodels.png" />
+                        <img src="img/Architecture%20V1.svg" />
                         <aside class="notes">
                             - SQL Server log for db
                             - Immutable
@@ -206,45 +206,45 @@
                 <section>
                     <h1>Voordelen</h1>
                     <ul>
-                        <li>Immutable lijst van events</li>
-                        <li>Debugability</li>
-                        <li>Performance (read models/append only writes)</li>
-                        <li>Geen object -> relational db mappings</li>
-                        <li>Scalable (read models)</li>
-                        <li>Selective synchronisation</li>
-                        <li>Occassional synchronisation</li>
+                        <li class="fragment" data-fragment-index="0">Lijst van immutable events</li>
+                        <li class="fragment" data-fragment-index="1">Realtime BI</li>
+                        <li class="fragment" data-fragment-index="2">Debugability</li>
+                        <li class="fragment" data-fragment-index="3">Performance (append only)</li>
+                        <li class="fragment" data-fragment-index="4">Geen object <-> relational database mappings</li>
+                        <li class="fragment" data-fragment-index="5">Scalable (read models)</li>
+                        <li class="fragment" data-fragment-index="6">Selective synchronisation</li>
+                        <li class="fragment" data-fragment-index="7">Occassional synchronisation</li>
                     </ul>
                 </section>
 
                 <section>
                     <h1>Nadelen</h1>
-                    <ul>
-                        <li>Complex</li>
-                        <li>Event log kan snel gigantisch worden</li>
-                        <li>Move moving parts</li>
+                    <ul style="padding-bottom:280px;">
+                        <li class="fragment" data-fragment-index="0">Complex</li>
+                        <li class="fragment" data-fragment-index="1">Event log groeit snel</li>
                     </ul>
                 </section>
 
                 <section>
                     <section>
-                        <h1>Problems / solution</h1>
+                        <h1>Patterns</h1>
+                        <p class="fragment" data-fragment-index="0">Alleen gebruiken als noodzakelijk!</p>
+                    </section>
+
+                    <section data-transition="slide-in none">
+                        <h2>Snapshotting</h2>
+                        <img src="img/Snapshotting%201.svg" />
+                    </section>
+
+                    <section data-transition="none slide-out">
+                        <h2>Snapshotting</h2>
+                        <img src="img/Snapshotting%202.svg" />
                     </section>
 
                     <section>
-                        <h2>Is a username unique?</h2>
-                        <p>Replay all events in memory/then query? NO</p>
-                        <ul>
-                            <li>Snapshots</li>
-                            <li>Read models
-                            <ul>
-                                <li>Eventual consistency</li>
-                            </ul>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section>
-                        <img src="img/Architectuur.png" />
+                        <h2 style="margin: 0;">Read models</h2>
+                        <p style="margin:0;">Is deze username al in gebruik?</p>
+                        <img class="fragment" data-fragment-index="0" src="img/Readmodels.svg" />
                     </section>
 
                     <section>

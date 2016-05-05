@@ -187,6 +187,7 @@
                     </section>
 
                     <section>
+                        <h2>Service Architectuur</h2>
                         <img src="img/Architecture%20V1.svg" />
                         <aside class="notes">
                             - SQL Server log for db
@@ -231,6 +232,11 @@
                         <p class="fragment" data-fragment-index="0">Alleen gebruiken als noodzakelijk!</p>
                     </section>
 
+                    <section>
+                        <h2>Compensation transaction</h2>
+
+                    </section>
+
                     <section data-transition="slide-in none">
                         <h2>Snapshotting</h2>
                         <img src="img/Snapshotting%201.svg" />
@@ -249,17 +255,74 @@
 
                     <section>
                         <h2>Versioning</h2>
-                        <p>Events no longer relevant, fields changed, names changed</p>
-                        <ul>
-                            <li>Event up converters
-                                <ul>
-                                    <li>Runtime</li>
-                                    <li>Write in EventStore</li>
-                                </ul>
-                            </li>
-                            <li>Snapshots</li>
-                        </ul>
-                        <p>IMG HERE</p>
+                        <p>In-memory upgrade mechanism</p>
+                        <div>
+                            <div class="left" style="width:48%;padding: 25px 0;">
+                             <pre>
+
+    {
+        'id': 3,
+        'type': 'ArtikelToegevoegd',
+        'datum': '<script type="text/javascript">document.write(Date.now());</script>',
+        'data': {
+            'artikel': 'Toetsenbord'
+        }
+    }
+                            </pre>
+                            </div>
+                            <div class="right">
+                            <pre class="fragment" data-fragment-index="0" >
+
+    {
+        'id': 3,
+        'type': 'ArtikelToegevoegd',
+        'version': 2,
+        'datum': '<script type="text/javascript">document.write(Date.now());</script>',
+        'data': {
+            'artikel': 'Toetsenbord',
+            'platform': 'Desktop'
+        }
+    }
+                            </pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Versioning</h2>
+                        <img src="img/Event%20upgrader.svg" />
+                    </section>
+
+                    <section>
+                        <h2>Versioning</h2>
+                        <p>Event merging/Splitting up</p>
+                        <div>
+                            <div class="left" style="width:48%;">
+                             <pre>
+
+    {
+        'id': 3,
+        'type': 'MouseDown',
+    }
+                            </pre>
+                            <pre>
+
+    {
+        'id': 4,
+        'type': 'MouseUp',
+    }
+                            </pre>
+                            </div>
+                            <div class="right" style="padding:70px 0;">
+                            <pre class="fragment" data-fragment-index="0" >
+
+    {
+        'id': 3,
+        'type': 'Clicked',
+    }
+                            </pre>
+                            </div>
+                        </div>
                     </section>
 
                     <section>

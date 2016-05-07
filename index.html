@@ -147,7 +147,6 @@
                             <ul>
                                 <li class="fragment" data-fragment-index="0">List of immutable events</li>
                                 <li class="fragment" data-fragment-index="1">Append only</li>
-                                <li class="fragment" data-fragment-index="2">Read using streams</li>
                             </ul>
                         </div>
                     </section>
@@ -319,24 +318,52 @@
 
                     <section data-transition="slide-in none">
                         <h2 style="margin: 0;">Read models</h2>
-                        <p style="margin:0;">Is deze username al in gebruik?</p>
+                        <p style="margin:0;">Optimized query handling</p>
                         <img class="fragment" data-fragment-index="0" src="img/Readmodels%20V1.svg" />
                     </section>
 
                     <section data-transition="none slide-out">
                         <h2 style="margin: 0;">Read models</h2>
-                        <p style="margin:0;">Is deze username al in gebruik?</p>
+                        <p style="margin:0;">Optimized query handling</p>
                         <img src="img/Readmodels%20V2.svg" />
                         <aside class="notes">
                             - Immediate vs Eventual Consistency
                             - Projections
                             - Cache, dus selective rebuild
+                            - Consumer driven subscription (Blog)
+                            - Server driven subscription (AMQP)
                         </aside>
                     </section>
 
-                    <section>
-                        <h2>ATOM Feeds</h2>
+                    <section data-transition="none">
+                        <h2 style="margin: 0;">Read models</h2>
+                        <p style="margin:0;">Server driven subscription</p>
+                        <img src="img/Readmodels%20V3.svg" />
+                        <aside class="notes">
+                            - 2 problems (control channel, replay)
+                            - Blog example
+                        </aside>
+                    </section>
 
+                    <section data-transition="none">
+                        <h2 style="margin: 0;">Read models</h2>
+                        <p style="margin:0;">Server driven subscription</p>
+                        <img src="img/Readmodels%20V4.svg" />
+                        <aside class="notes">
+                            - 2 problems (control channel, replay)
+                            - Blog example
+                        </aside>
+                    </section>
+
+                    <section data-transition="none slide-out">
+                        <h2 style="margin: 0;">Read models</h2>
+                        <p style="margin:0;">Consumer driven subscription</p>
+                        <img src="img/Readmodels%20V2.svg" />
+                        <aside class="notes">
+                            - Where now, where is first
+                            - Replay on top 50
+                            - Consumer remembers position, not producer
+                        </aside>
                     </section>
 
                     <section>
@@ -469,7 +496,7 @@
                     <h2>Producten</h2>
                     <ul>
                         <li>NEventStore (by Greg Young)</li>
-                        <li>Akka</li>
+                        <li>Kafka</li>
                     </ul>
                 </section>
 

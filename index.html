@@ -91,19 +91,26 @@
                         <p><img src="img/State%201.svg" /></p>
                         <aside class="notes">
                            <ul>
-                               <li>PO die rapportering wil </li>
-                               <li>deze data mist want is verwijderd</li>
-                               <li>kan gebouwd worden maar is pas vanaf vandaag</li>
+                               <li>Rapportering</li>
+                               <li>Data mist</li>
+                               <li>Only from now</li>
                            </ul>
                         </aside>
                     </section>
 
                     <section>
                         <img src="img/State%202.svg" />
+                        <aside class="notes">
+                            - Event opslaan ipv staat
+                            - Nog steeds missende data
+                        </aside>
                     </section>
 
                     <section>
                         <img src="img/State%203.svg" />
+                        <aside class="notes">
+                            - Event opslaan als staat
+                        </aside>
                     </section>
 
 
@@ -147,7 +154,10 @@
 
                     <section>
                         <h2>Compensating events</h2>
-                        <p>Wat als je iets verkeerd </p>
+                        <p>Wat als je iets verkeerd doet?</p>
+                        <aside class="notes">
+                            - Bankrekening
+                        </aside>
                     </section>
 
                     <section data-transition="slide-in none">
@@ -247,10 +257,26 @@
                         <img src="img/Snapshotting%202.svg" />
                     </section>
 
-                    <section>
-                        <h2 style="margin: 0;">Read models</h2>
+                    <section data-transition="slide-in none">
+                        <h2 style="margin: 0;">Read models/Projections</h2>
                         <p style="margin:0;">Is deze username al in gebruik?</p>
-                        <img class="fragment" data-fragment-index="0" src="img/Readmodels.svg" />
+                        <img class="fragment" data-fragment-index="0" src="img/Readmodels%20V1.svg" />
+                    </section>
+
+                    <section data-transition="none slide-out">
+                        <h2 style="margin: 0;">Read models/Projections</h2>
+                        <p style="margin:0;">Is deze username al in gebruik?</p>
+                        <img src="img/Readmodels%20V2.svg" />
+                        <aside class="notes">
+                            - Immediate vs Eventual Consistency
+                            - Projections
+                            - Cache, dus selective rebuild
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>ATOM Feeds</h2>
+
                     </section>
 
                     <section>
@@ -326,39 +352,43 @@
                     </section>
 
                     <section>
-                        <h2>Concurrency</h2>
-                        <ul>
-                            <li>Optimistic locking</li>
-                            <li>Pessimistic locking</li>
-                            <li>Event merging</li>
-                        </ul>
+                        <h2>Versioning</h2>
+                        <img src="img/Event%20Versioning.png" />
                     </section>
 
-                    <section>
-                        <p>IMG ABOUT EVENT MERGING HERE</p>
+                    <section data-transition="slide-in none">
+                        <h2>TWK mutaties</h2>
+                        <img src="img/twk/TWK%20Mutaties%20V1.svg"/>
                     </section>
 
-                    <section>
-                        <h2>Terug werkende kracht mutaties</h2>
-                        <p>delta berekenen om wijzigingen te doen</p>
+                    <section data-transition="none">
+                        <h2>TWK mutaties</h2>
+                        <img src="img/twk/TWK%20Mutaties%20V2.svg"/>
                     </section>
 
-                    <section>
-                        <h2>New service connected?</h2>
-                        <p>Wat als een service crashed?</p>
-                        <ul>
-                            <li>Replaying van events
-                                <ul>
-                                    <li>ATOM feeds</li>
-                                    <li>Niet via bus!</li>
-                                </ul>
-                            </li>
-                        </ul>
+                    <section data-transition="none">
+                        <h2>TWK mutaties</h2>
+                        <img src="img/twk/TWK%20Mutaties%20V3.svg"/>
                     </section>
 
-                    <section>
-                        <h2>Single source of failure</h2>
-                        <p>Correct, gewoon dubbel uitvoeren</p>
+                    <section data-transition="none">
+                        <h2>TWK mutaties</h2>
+                        <img src="img/twk/TWK%20Mutaties%20V4.svg"/>
+                    </section>
+
+                    <section data-transition="none">
+                        <h2>TWK mutaties</h2>
+                        <img src="img/twk/TWK%20Mutaties%20V5.svg"/>
+                    </section>
+
+                    <section data-transition="none">
+                        <h2>TWK mutaties</h2>
+                        <img src="img/twk/TWK%20Mutaties%20V6.svg"/>
+                    </section>
+
+                    <section data-transition="none">
+                        <h2>TWK mutaties</h2>
+                        <img src="img/twk/TWK%20Mutaties%20V7.svg"/>
                     </section>
                 </section>
 

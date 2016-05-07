@@ -11,6 +11,7 @@
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
+html { background-color: inherit; } 
 body {
   background-image: url("../../img/waaier.svg");
   background-repeat: no-repeat;

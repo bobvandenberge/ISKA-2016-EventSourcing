@@ -84,7 +84,11 @@
 
                 <section>
                     <section>
-                        <h1>Wat is Event Sourcing?</h1>
+                        <h2>Wat is Event Sourcing?</h2>
+                        <blockquote class="fragment" data-fragment-index="0">Using an object's <strong>history</strong> to reconstitute its <strong>state</strong></blockquote>
+                        <aside class="notes">
+                            - Rekening, sommatie van events
+                        </aside>
                     </section>
 
                     <section>
@@ -110,9 +114,10 @@
                         <img src="img/State%203.svg" />
                         <aside class="notes">
                             - Event opslaan als staat
+                            - Events are facts, immutable
+                            - Unknown future requirements
                         </aside>
                     </section>
-
 
                     <section>
                         <div class="left" style="width:40%;">
@@ -125,9 +130,9 @@
                             <pre>
 
     {
-        'id': 3,
+        'user_id': 3,
         'type': 'ArtikelToegevoegd',
-        'datum': '<script type="text/javascript">document.write(Date.now());</script>',
+        'timestamp': '<script type="text/javascript">document.write(Date.now());</script>',
         'data':
             {
                 'artikel': 'Toetsenbord'
@@ -136,7 +141,6 @@
                             </pre>
                         </div>
                     </section>
-
 
                     <section>
                         <h2>Event Store</h2>
@@ -148,43 +152,62 @@
                                 <li class="fragment" data-fragment-index="0">List of immutable events</li>
                                 <li class="fragment" data-fragment-index="1">Append only</li>
                             </ul>
+
+                            <p class="fragment" data-fragment-index="3" style="font-style: italic;">You can't change history!</p>
                         </div>
                     </section>
 
-
+                    <section>
+                        <h2>Immutability</h2>
+                        <ul>
+                            <li class="fragment" data-fragment-index="0">Performance door caching</li>
+                            <li class="fragment" data-fragment-index="1">Audit logging</li>
+                            <li class="fragment" data-fragment-index="2">Simple backups</li>
+                            <li class="fragment" data-fragment-index="3">Geen single point of failure</li>
+                            <li class="fragment" data-fragment-index="4">Bescherming tegen media decay/bit rot</li>
+                            <li class="fragment" data-fragment-index="5">Disk space</li>
+                        </ul>
+                        <aside class="notes">
+                            - Multi-kopie, altijd laatste versie
+                            - Audit: kan met hashen
+                            - Backup: alleen delta
+                            - Beschermin: checksum
+                            - Space: hoeveel is 1GB?
+                        </aside>
+                    </section>
 
                     <section data-transition="slide-in none">
-                        <h2>Compensating events</h2>
+                        <h2>Compensating transaction</h2>
                         <p>Wat als je iets verkeerd doet?</p>
                         <img src="img/CT/Compensating%20Transactions%20V1.svg"/>
                     </section>
 
                     <section data-transition="none">
-                        <h2>Compensating events</h2>
+                        <h2>Compensating transaction</h2>
                         <p>Wat als je iets verkeerd doet?</p>
                         <img src="img/CT/Compensating%20Transactions%20V2.svg"/>
                     </section>
 
                     <section data-transition="none">
-                        <h2>Compensating events</h2>
+                        <h2>Compensating transaction</h2>
                         <p>Wat als je iets verkeerd doet?</p>
                         <img src="img/CT/Compensating%20Transactions%20V3.svg"/>
                     </section>
 
                     <section data-transition="none">
-                        <h2>Compensating events</h2>
+                        <h2>Compensating transaction</h2>
                         <p>Wat als je iets verkeerd doet?</p>
                         <img src="img/CT/Compensating%20Transactions%20V4.svg"/>
                     </section>
 
                     <section data-transition="none">
-                        <h2>Compensating events</h2>
+                        <h2>Compensating transaction</h2>
                         <p>Wat als je iets verkeerd doet?</p>
                         <img src="img/CT/Compensating%20Transactions%20V5.svg"/>
                     </section>
 
                     <section data-transition="none">
-                        <h2>Compensating events</h2>
+                        <h2>Compensating transaction</h2>
                         <p>Wat als je iets verkeerd doet?</p>
                         <img src="img/CT/Compensating%20Transactions%20V6.svg"/>
                         <aside class="notes">
@@ -201,6 +224,9 @@
                     <section data-transition="none">
                         <h2>Projections</h2>
                         <img src="img/replay/Step%201.svg" style="width:100%;"/>
+                        <aside class="notes">
+                            - Query by id only
+                        </aside>
                     </section>
 
                     <section data-transition="none">
@@ -286,12 +312,12 @@
                     <ul>
                         <li class="fragment" data-fragment-index="0">Lijst van immutable events</li>
                         <li class="fragment" data-fragment-index="1">Realtime BI</li>
-                        <li class="fragment" data-fragment-index="2">Debugability</li>
+                        <li class="fragment" data-fragment-index="2">Debugability/Testability</li>
                         <li class="fragment" data-fragment-index="3">Performance (append only)</li>
                         <li class="fragment" data-fragment-index="4">Geen object <-> relational database mappings</li>
                         <li class="fragment" data-fragment-index="5">Scalable (read models)</li>
-                        <li class="fragment" data-fragment-index="6">Selective synchronisation</li>
-                        <li class="fragment" data-fragment-index="7">Occassional synchronisation</li>
+                        <li class="fragment" data-fragment-index="6">Temporal queries</li>
+                        <li class="fragment" data-fragment-index="7">Selective Occassional/selective synchronisation</li>
                     </ul>
                 </section>
 
@@ -301,6 +327,10 @@
                         <li class="fragment" data-fragment-index="0">Complex</li>
                         <li class="fragment" data-fragment-index="1">Event log groeit snel</li>
                     </ul>
+                    <aside class="notes">
+                        - Complex in business way, not technical
+                        - Disk space cheap
+                    </aside>
                 </section>
 
                 <section>
@@ -377,9 +407,9 @@
                              <pre>
 
     {
-        'id': 3,
+        'user_id': 3,
         'type': 'ArtikelToegevoegd',
-        'datum': '<script type="text/javascript">document.write(Date.now());</script>',
+        'timestamp': '<script type="text/javascript">document.write(Date.now());</script>',
         'data': {
             'artikel': 'Toetsenbord'
         }
@@ -390,10 +420,10 @@
                             <pre class="fragment" data-fragment-index="0" >
 
     {
-        'id': 3,
+        'user_id': 3,
         'type': 'ArtikelToegevoegd',
         'version': 2,
-        'datum': '<script type="text/javascript">document.write(Date.now());</script>',
+        'timestamp': '<script type="text/javascript">document.write(Date.now());</script>',
         'data': {
             'artikel': 'Toetsenbord',
             'platform': 'Desktop'
@@ -417,15 +447,13 @@
                              <pre>
 
     {
-        'id': 3,
-        'type': 'MouseDown',
+        'type': 'MouseDown'
     }
                             </pre>
                             <pre>
 
     {
-        'id': 4,
-        'type': 'MouseUp',
+        'type': 'MouseUp'
     }
                             </pre>
                             </div>
@@ -433,8 +461,7 @@
                             <pre class="fragment" data-fragment-index="0" >
 
     {
-        'id': 3,
-        'type': 'Clicked',
+        'type': 'Clicked'
     }
                             </pre>
                             </div>
@@ -480,16 +507,20 @@
                         <h2>TWK mutaties</h2>
                         <img src="img/twk/TWK%20Mutaties%20V7.svg"/>
                     </section>
+
+                    <section>
+                        <h2>Merge-based concurrency</h2>
+                    </section>
                 </section>
 
                 <section>
-                    <h2>Wanneer EventSourcing?</h2>
+                    <h2>Wanneer Event Sourcing?</h2>
                     <ul>
                         <li>Rich object-oriented domain models</li>
                         <li>Non-CRUD behaviour</li>
                         <li>Good debugging capabilities is critical</li>
                         <li>Need version control of data (auditing)</li>
-                        <li>Need it for monitoring</li>
+                        <li>Monitoring/ Real time BI</li>
                         <li>Domain is inherently event driven</li>
                         <li>You are using CQRS</li>
                     </ul>

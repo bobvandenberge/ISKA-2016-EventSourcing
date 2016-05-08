@@ -287,6 +287,10 @@
                     <section data-transition="none">
                         <h2>Projections</h2>
                         <img src="img/replay/Step%2010.svg" style="width:100%;"/>
+                        <aside class="notes">
+                            - Debugging, stop rewing replay
+                            - Testing
+                        </aside>
                     </section>
 
                     <section>
@@ -317,7 +321,7 @@
                         <li class="fragment" data-fragment-index="4">Geen object <-> relational database mappings</li>
                         <li class="fragment" data-fragment-index="5">Scalable (read models)</li>
                         <li class="fragment" data-fragment-index="6">Temporal queries</li>
-                        <li class="fragment" data-fragment-index="7">Selective Occassional/selective synchronisation</li>
+                        <li class="fragment" data-fragment-index="7">Selective/Occassional synchronisation</li>
                     </ul>
                 </section>
 
@@ -393,7 +397,7 @@
                         <p style="margin:0;">Consumer driven subscription</p>
                         <img src="img/Readmodels%20V2.svg" />
                         <aside class="notes">
-                            - Where now, where is first
+                            - ATOM: Where now, where is first
                             - Replay on top 50
                             - Consumer remembers position, not producer
                         </aside>
@@ -507,31 +511,44 @@
                         <h2>TWK mutaties</h2>
                         <img src="img/twk/TWK%20Mutaties%20V7.svg"/>
                     </section>
-
-                    <section>
-                        <h2>Merge-based concurrency</h2>
-                    </section>
                 </section>
 
                 <section>
                     <h2>Wanneer Event Sourcing?</h2>
                     <ul>
-                        <li>Rich object-oriented domain models</li>
+                        <li>Rich domain models</li>
                         <li>Non-CRUD behaviour</li>
-                        <li>Good debugging capabilities is critical</li>
-                        <li>Need version control of data (auditing)</li>
-                        <li>Monitoring/ Real time BI</li>
+                        <li>Auditing</li>
+                        <li>Monitoring/ Realtime BI</li>
                         <li>Domain is inherently event driven</li>
-                        <li>You are using CQRS</li>
                     </ul>
                 </section>
 
                 <section>
                     <h2>Producten</h2>
                     <ul>
-                        <li>NEventStore (by Greg Young)</li>
+                        <li>GetEventStore (by Greg Young)</li>
+                        <li>NEventStore</li>
                         <li>Kafka</li>
                     </ul>
+                </section>
+
+                <section>
+                    <h2>Future</h2>
+                    <ul>
+                        <li>Code changes?</li>
+                        <li>N-temporal queries</li>
+                        <li>Client side Event Sourcing
+                            <ul>
+                                <li>Occasionally connected system</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <aside class="notes">
+                        - Changes: belastingaangifte
+                        - N-Temp: jij weet nu wat?
+                        - GIT: in Tunnel
+                    </aside>
                 </section>
 
                 <section>

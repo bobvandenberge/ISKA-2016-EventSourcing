@@ -87,35 +87,38 @@
                         <h2>Wat is Event Sourcing?</h2>
                         <blockquote class="fragment" data-fragment-index="0">Using an object's <strong>history</strong> to reconstitute its <strong>state</strong></blockquote>
                         <aside class="notes">
-                            - Rekening, sommatie van events
+                            <ul>
+                                <li>Rekening, sommatie van events</li>
+                                <li>Hail the column</li>
+                                <li>Discussie over facts, niet resultaat</li>
+                                <li>Bewijzen van staat</li>
+                                <li>Reden dat het populair is</li>
+                                <li>State is view van je history</li>
+                            </ul>
+
                         </aside>
                     </section>
 
                     <section>
                         <p><img src="img/State%201.svg" /></p>
                         <aside class="notes">
-                           <ul>
-                               <li>Rapportering</li>
-                               <li>Data mist</li>
-                               <li>Only from now</li>
-                           </ul>
-                        </aside>
-                    </section>
-
-                    <section>
-                        <img src="img/State%202.svg" />
-                        <aside class="notes">
-                            - Event opslaan ipv staat
-                            - Nog steeds missende data
+                            <ul>
+                                <li>Huidige model</li>
+                                <li>Andere manieren</li>
+                                <li>Rapportering</li>
+                                <li>ONly from now</li>
+                            </ul>
                         </aside>
                     </section>
 
                     <section>
                         <img src="img/State%203.svg" />
                         <aside class="notes">
-                            - Event opslaan als staat
-                            - Events are facts, immutable
-                            - Unknown future requirements
+                            <ul>
+                                <li>Event opslaan als staat</li>
+                                <li>Events are facts, immutable</li>
+                                <li>Unknown future requirements</li>
+                            </ul>
                         </aside>
                     </section>
 
@@ -159,6 +162,7 @@
 
                     <section>
                         <h2>Immutability</h2>
+                        <p>Geen update/delete</p>
                         <ul>
                             <li class="fragment" data-fragment-index="0">Performance door caching</li>
                             <li class="fragment" data-fragment-index="1">Audit logging</li>
@@ -168,11 +172,13 @@
                             <li class="fragment" data-fragment-index="5">Disk space</li>
                         </ul>
                         <aside class="notes">
-                            - Multi-kopie, altijd laatste versie
-                            - Audit: kan met hashen
-                            - Backup: alleen delta
-                            - Beschermin: checksum
-                            - Space: hoeveel is 1GB?
+                            <ul>
+                                <li>Multi-kopie, altijd laatste versie</li>
+                                <li>Audit: kan met hashen</li>
+                                <li>Backup: alleen delta</li>
+                                <li>Beschermin: checksum</li>
+                                <li>Space: hoeveel is 1GB?</li>
+                            </ul>
                         </aside>
                     </section>
 
@@ -211,7 +217,9 @@
                         <p>Wat als je iets verkeerd doet?</p>
                         <img src="img/CT/Compensating%20Transactions%20V6.svg"/>
                         <aside class="notes">
-                            - Shows intent, rekening
+                            <ul>
+                                <li>Shows intent, rekening</li>
+                            </ul>
                         </aside>
                     </section>
 
@@ -225,7 +233,9 @@
                         <h2>Projections</h2>
                         <img src="img/replay/Step%201.svg" style="width:100%;"/>
                         <aside class="notes">
-                            - Query by id only
+                            <ul>
+                                <li>Query by id only</li>
+                            </ul>
                         </aside>
                     </section>
 
@@ -288,8 +298,10 @@
                         <h2>Projections</h2>
                         <img src="img/replay/Step%2010.svg" style="width:100%;"/>
                         <aside class="notes">
-                            - Debugging, stop rewing replay
-                            - Testing
+                            <ul>
+                                <li>Debugging, stop rewing replay</li>
+                                <li>Testing</li>
+                            </ul>
                         </aside>
                     </section>
 
@@ -297,8 +309,10 @@
                         <h2>Service Architectuur</h2>
                         <img src="img/Architecture%20V1.svg" />
                         <aside class="notes">
-                            - SQL Server log for db
-                            - Immutable
+                            <ul>
+                                <li>SQL Server log for db</li>
+                                <li>Immutable</li>
+                            </ul>
                         </aside>
                     </section>
 
@@ -332,8 +346,10 @@
                         <li class="fragment" data-fragment-index="1">Event log groeit snel</li>
                     </ul>
                     <aside class="notes">
-                        - Complex in business way, not technical
-                        - Disk space cheap
+                        <ul>
+                            <li>Complex in business way, not technical</li>
+                            <li>Disk space cheap</li>
+                        </ul>
                     </aside>
                 </section>
 
@@ -364,11 +380,13 @@
                         <p style="margin:0;">Optimized query handling</p>
                         <img src="img/Readmodels%20V2.svg" />
                         <aside class="notes">
-                            - Immediate vs Eventual Consistency
-                            - Projections
-                            - Cache, dus selective rebuild
-                            - Consumer driven subscription (Blog)
-                            - Server driven subscription (AMQP)
+                            <ul>
+                                <li>Immediate vs Eventual Consistency</li>
+                                <li>Projections</li>
+                                <li>Cache, dus selective rebuild</li>
+                                <li>Consumer driven subscription (Blog)</li>
+                                <li>Server driven subscription (AMQP)</li>
+                            </ul>
                         </aside>
                     </section>
 
@@ -377,8 +395,10 @@
                         <p style="margin:0;">Server driven subscription</p>
                         <img src="img/Readmodels%20V3.svg" />
                         <aside class="notes">
-                            - 2 problems (control channel, replay)
-                            - Blog example
+                            <ul>
+                                <li>2 problems (control channel, replay)</li>
+                                <li>Blog example</li>
+                            </ul>
                         </aside>
                     </section>
 
@@ -387,8 +407,10 @@
                         <p style="margin:0;">Server driven subscription</p>
                         <img src="img/Readmodels%20V4.svg" />
                         <aside class="notes">
-                            - 2 problems (control channel, replay)
-                            - Blog example
+                            <ul>
+                                <li>2 problems (control channel, replay)</li>
+                                <li>Blog example</li>
+                            </ul>
                         </aside>
                     </section>
 
@@ -397,9 +419,11 @@
                         <p style="margin:0;">Consumer driven subscription</p>
                         <img src="img/Readmodels%20V2.svg" />
                         <aside class="notes">
-                            - ATOM: Where now, where is first
-                            - Replay on top 50
-                            - Consumer remembers position, not producer
+                            <ul>
+                                <li>ATOM: Where now, where is first</li>
+                                <li>Replay on top 50</li>
+                                <li>Consumer remembers position, not producer</li>
+                            </ul>
                         </aside>
                     </section>
 
@@ -545,9 +569,11 @@
                         </li>
                     </ul>
                     <aside class="notes">
-                        - Changes: belastingaangifte
-                        - N-Temp: jij weet nu wat?
-                        - GIT: in Tunnel
+                        <ul>
+                        <li>Changes: belastingaangifte</li>
+                        <li>N-Temp: jij weet nu wat?</li>
+                        <li>GIT: in Tunnel</li>
+                        </ul>
                     </aside>
                 </section>
 
